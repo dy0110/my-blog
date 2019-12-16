@@ -85,6 +85,6 @@ module.exports = {
       options: {
         templatePath: `${__dirname}/src/templates/tag.js`,
       },
-    }
+    },
   ],
 }

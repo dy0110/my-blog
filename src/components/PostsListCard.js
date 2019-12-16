@@ -1,4 +1,3 @@
-
 import React from "react"
 import { Link } from "gatsby"
 
@@ -14,13 +13,9 @@ const PostsListCard = ({ frontmatter, fields, excerpt }) => {
             __html: frontmatter.description || excerpt,
           }}
         />
-        <Link to={`/${fields.slug}/`} >
-          Read More &rarr;
-        </Link>
+        <Link to={`/${fields.slug}/`}>Read More &rarr;</Link>
       </header>
-      <section >
-        Posted on {frontmatter.date}
-      </section>
+      <section>Posted on {frontmatter.date}</section>
     </article>
   )
 }

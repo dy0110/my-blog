@@ -1,5 +1,5 @@
 import Typography from "typography"
-import githubTheme from 'typography-theme-github'
+import githubTheme from "typography-theme-github"
 
 githubTheme.overrideThemeStyles = () => {
   return {
