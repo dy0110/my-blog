@@ -25,7 +25,7 @@ const Layout = ({ title, children }) => {
           <Box
             fill
             style={{ height: `100vh`, position: "relative" }}
-            overflow={"hidden"}
+            // overflow={"hidden"}
           >
             {console.log("size", size)}
             <Header
@@ -63,9 +63,10 @@ const Layout = ({ title, children }) => {
             </Header>
             <Box
               tag="main"
-              overflow={{ vertical: "visible", horizontal: "hidden" }}
+              overflow={{ vertical: "scroll", horizontal: "hidden" }}
               background={theme ? "dark-1" : "white"}
-              pad={"large"}
+              pad={{ horizontal: "50px" }}
+              style={{ display: "block" }}
             >
               {children}
             </Box>

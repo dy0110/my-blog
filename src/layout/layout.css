@@ -1,5 +1,3 @@
-body {overflow:hidden;}
-
 #gatsby-focus-wrapper {
-    overflow: hidden;
+    overflow-x: hidden;
 }

@@ -1,10 +1,10 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
+import { Box, Header, Heading } from "grommet"
 
 import Bio from "../components/bio"
 import Layout from "../layout/layout"
 import SEO from "../components/seo"
-import { rhythm } from "../utils/typography"
 
 const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata.title
@@ -19,27 +19,40 @@ const BlogIndex = ({ data, location }) => {
       {posts.map(({ node }) => {
         const title = node.frontmatter.title || node.fields.slug
         return (
-          <article key={node.fields.slug}>
-            <header>
-              <h3
-                style={{
-                  marginBottom: rhythm(1 / 4),
-                }}
+          // <article key={node.fields.slug}>
+          //   <header>
+          //     <h3
+          //       style={{
+          //         marginBottom: rhythm(1 / 4),
+          //       }}
+          //     >
+          //       <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
+          //         {title}
+          //       </Link>
+          //     </h3>
+          //     <small>{node.frontmatter.date}</small>
+          //   </header>
+          //   <section>
+          //     <p>{node.frontmatter.description || node.excerpt}</p>
+          //   </section>
+          // </article>
+          <Box tag="article" key={node.fields.slug}>
+            <Header direction="row" align="center" justify="between">
+              <Heading
+                level={3}
+                margin={"none"}
+                style={{ borderBottom: `none` }}
               >
                 <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
                   {title}
                 </Link>
-              </h3>
-              <small>{node.frontmatter.date}</small>
-            </header>
+              </Heading>
+            </Header>
+            <small>{node.frontmatter.date}</small>
             <section>
-              <p
-                dangerouslySetInnerHTML={{
-                  __html: node.frontmatter.description || node.excerpt,
-                }}
-              />
+              <p>{node.frontmatter.description || node.excerpt}</p>
             </section>
-          </article>
+          </Box>
         )
       })}
     </Layout>
