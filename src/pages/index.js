@@ -1,9 +1,9 @@
 import React from "react"
-import { Link, graphql } from "gatsby"
-import { Box, Header, Heading } from "grommet"
+import { graphql } from "gatsby"
 
-import Bio from "../components/bio"
 import Layout from "../layout/layout"
+import Bio from "../components/bio"
+import AriticleCard from "../components/ariticleCard"
 import SEO from "../components/seo"
 
 const BlogIndex = ({ data, location }) => {
@@ -19,40 +19,35 @@ const BlogIndex = ({ data, location }) => {
       {posts.map(({ node }) => {
         const title = node.frontmatter.title || node.fields.slug
         return (
-          // <article key={node.fields.slug}>
-          //   <header>
-          //     <h3
-          //       style={{
-          //         marginBottom: rhythm(1 / 4),
-          //       }}
+          <AriticleCard
+            title={title}
+            key={node.fields.slug}
+            slugTitle={node.fields.slug}
+            date={node.frontmatter.date}
+            description={node.frontmatter.description}
+            excerpt={node.excerpt}
+            category={node.frontmatter.category}
+            slugCategory={node.fields.category}
+            tags={node.frontmatter.tags}
+            slugTags={node.fields.tags}
+          />
+          // <Box tag="article" key={node.fields.slug}>
+          //   <Header direction="row" align="center" justify="between">
+          //     <Heading
+          //       level={3}
+          //       margin={"none"}
+          //       style={{ borderBottom: `none` }}
           //     >
           //       <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
           //         {title}
           //       </Link>
-          //     </h3>
-          //     <small>{node.frontmatter.date}</small>
-          //   </header>
+          //     </Heading>
+          //   </Header>
+          //   <small>{node.frontmatter.date}</small>
           //   <section>
           //     <p>{node.frontmatter.description || node.excerpt}</p>
           //   </section>
-          // </article>
-          <Box tag="article" key={node.fields.slug}>
-            <Header direction="row" align="center" justify="between">
-              <Heading
-                level={3}
-                margin={"none"}
-                style={{ borderBottom: `none` }}
-              >
-                <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
-                  {title}
-                </Link>
-              </Heading>
-            </Header>
-            <small>{node.frontmatter.date}</small>
-            <section>
-              <p>{node.frontmatter.description || node.excerpt}</p>
-            </section>
-          </Box>
+          // </Box>
         )
       })}
     </Layout>
@@ -74,9 +69,11 @@ export const pageQuery = graphql`
           excerpt
           fields {
             slug
+            category
+            tags
           }
           frontmatter {
-            date(formatString: "MMMM DD, YYYY")
+            date(formatString: "YYYY/MM/DD", locale: "ja")
             title
             description
             category

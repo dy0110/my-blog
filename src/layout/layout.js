@@ -22,17 +22,13 @@ const Layout = ({ title, children }) => {
     <Grommet theme={switchTheme(theme)} full>
       <ResponsiveContext.Consumer>
         {size => (
-          <Box
-            fill
-            style={{ height: `100vh`, position: "relative" }}
-            // overflow={"hidden"}
-          >
+          <Box fill style={{ height: `100vh`, position: "relative" }}>
             {console.log("size", size)}
             <Header
               direction="row"
               align="center"
               justify="between"
-              background={theme ? "dark-1" : "brand"}
+              background={theme ? "dark-2" : "brand"}
               pad={{ left: "medium", right: "small", vertical: "small" }}
             >
               <Heading
@@ -64,14 +60,14 @@ const Layout = ({ title, children }) => {
             <Box
               tag="main"
               overflow={{ vertical: "scroll", horizontal: "hidden" }}
-              background={theme ? "dark-1" : "white"}
-              pad={{ horizontal: "50px" }}
+              background={theme ? "dark-2" : "white"}
+              pad={{ horizontal: "50px", vertical: "small" }}
               style={{ display: "block" }}
             >
               {children}
             </Box>
             <Footer
-              background={theme ? "dark-1" : "light-3"}
+              background={theme ? "dark-2" : "light-3"}
               direction={"row"}
               align={"center"}
               justify={"center"}
