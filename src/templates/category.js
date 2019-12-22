@@ -1,23 +1,19 @@
 import React from "react"
 import { graphql } from "gatsby"
+import { Box, Heading } from "grommet"
 
-import Layout from "../layout/layout"
 import SEO from "../components/seo"
-import PostsList from "../components/PostsList"
+import PostsList from "../components/postsList"
 
-const CategoryTemplate = ({ location, pageContext, data }) => {
+const CategoryTemplate = ({ pageContext, data }) => {
   const { category } = pageContext
   return (
-    <Layout location={location} title={`Posts in category "${category}"`}>
-      <div className="category-container">
-        <SEO title={`Posts in category "${category}"`} />
+    <Box tag={"div"} className="category-container">
+      <SEO title={`Posts in category "${category}"`} />
 
-        <div>
-          <h1>Category: {category}</h1>
-          <PostsList postEdges={data.allMarkdownRemark.edges} />
-        </div>
-      </div>
-    </Layout>
+      <Heading level={2}>カテゴリ: {category}</Heading>
+      <PostsList postEdges={data.allMarkdownRemark.edges} />
+    </Box>
   )
 }
 
@@ -38,7 +34,7 @@ export const pageQuery = graphql`
           timeToRead
           frontmatter {
             title
-            date
+            date(formatString: "YYYY/MM/DD", locale: "ja")
           }
         }
       }

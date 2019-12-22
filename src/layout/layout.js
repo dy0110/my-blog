@@ -15,7 +15,7 @@ import { Github, Trigger } from "grommet-icons"
 import { switchTheme } from "../utils/theme"
 import "./layout.css"
 
-const Layout = ({ title, children }) => {
+const Layout = ({ children }) => {
   const [theme, setTheme] = useState(false)
 
   return (
@@ -44,11 +44,16 @@ const Layout = ({ title, children }) => {
                   }}
                   to={`/`}
                 >
-                  {title}
+                  Gatsby Starter Blog
                 </Link>
               </Heading>
               <Box tag="div" direction="row" align="center" justify="start">
-                <Button icon={<Github />} />
+                <Button
+                  icon={<Github />}
+                  onClick={() => {
+                    window.open("https://github.com/dy0110")
+                  }}
+                />
                 <Button
                   icon={<Trigger />}
                   onClick={() => {
@@ -61,7 +66,7 @@ const Layout = ({ title, children }) => {
               tag="main"
               overflow={{ vertical: "scroll", horizontal: "hidden" }}
               background={theme ? "dark-2" : "white"}
-              pad={{ horizontal: "50px", vertical: "small" }}
+              pad={{ horizontal: "50px", bottom: "large", top: "small" }}
               style={{ display: "block" }}
             >
               {children}

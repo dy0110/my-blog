@@ -1,5 +1,5 @@
 import React from "react"
-import { Box, Header, Heading } from "grommet"
+import { Box, Header, Heading, Text } from "grommet"
 import { Link } from "gatsby"
 
 const ArticleCard = ({
@@ -14,29 +14,47 @@ const ArticleCard = ({
   slugTags,
 }) => {
   return (
-    <Box tag="article" key={slugTitle}>
+    <Box tag="article" key={slugTitle} pad={{ vertical: "5px" }}>
       <Header direction="row" align="center" justify="between">
         <Heading level={3} margin={"none"} style={{ borderBottom: `none` }}>
-          <Link style={{ boxShadow: `none` }} to={slugTitle}>
+          <Link
+            style={{
+              boxShadow: `none`,
+              textDecoration: `none`,
+              color: `inherit`,
+            }}
+            to={slugTitle}
+          >
             {title}
           </Link>
         </Heading>
       </Header>
       <small>{date}</small>
-      <small>
+      <Text size={"xsmall"}>
         カテゴリ:{" "}
-        <Link style={{ boxShadow: `none` }} to={`category/${slugCategory}`}>
+        <Link
+          style={{
+            boxShadow: `none`,
+            textDecoration: `none`,
+            color: `inherit`,
+          }}
+          to={`category/${slugCategory}`}
+        >
           {category != null ? category : ""}
         </Link>
-      </small>
-      <small>
+      </Text>
+      <Text size={"xsmall"}>
         タグ:{" "}
         {slugTags != null
           ? slugTags.map((slugTag, index) => (
               <>
                 <Link
                   key={index}
-                  style={{ boxShadow: `none` }}
+                  style={{
+                    boxShadow: `none`,
+                    textDecoration: `none`,
+                    color: `inherit`,
+                  }}
                   to={`tags/${slugTag}`}
                 >
                   {tags != null && tags[index]}
@@ -45,10 +63,10 @@ const ArticleCard = ({
               </>
             ))
           : ""}
-      </small>
+      </Text>
 
       <section>
-        <p>{description || excerpt}</p>
+        <Text size={"medium"}>{description || excerpt}</Text>
       </section>
     </Box>
   )
