@@ -28,7 +28,7 @@ const Layout = ({ children }) => {
               direction="row"
               align="center"
               justify="between"
-              background={theme ? "dark-2" : "brand"}
+              background={theme ? "dark-1" : "brand"}
               pad={{ left: "medium", right: "small", vertical: "small" }}
             >
               <Heading
@@ -65,14 +65,14 @@ const Layout = ({ children }) => {
             <Box
               tag="main"
               overflow={{ vertical: "scroll", horizontal: "hidden" }}
-              background={theme ? "dark-2" : "white"}
+              background={theme ? "dark-1" : "white"}
               pad={{ horizontal: "50px", bottom: "large", top: "small" }}
               style={{ display: "block" }}
             >
               {children}
             </Box>
             <Footer
-              background={theme ? "dark-2" : "light-3"}
+              background={theme ? "dark-1" : "light-3"}
               direction={"row"}
               align={"center"}
               justify={"center"}
@@ -82,7 +82,16 @@ const Layout = ({ children }) => {
             >
               <Text>
                 © {new Date().getFullYear()}, Built with
-                <a href="https://www.gatsbyjs.org"> Gatsby</a>
+                <a
+                  href="https://www.gatsbyjs.org"
+                  style={{
+                    boxShadow: `none`,
+                    textDecoration: `none`,
+                    color: `inherit`,
+                  }}
+                >
+                  Gatsby
+                </a>
               </Text>
             </Footer>
           </Box>

@@ -48,9 +48,9 @@ const Bio = () => {
       <Paragraph>
         <strong>{author}</strong>
         <br />
-        <small>フロントエンジニア</small>
+        <Text size={"xsmall"}>フロントエンジニア</Text>
         <br />
-        <Text>プログラミングと趣味のことを書きたい</Text>
+        <Text size={"small"}>趣味とプログラミング</Text>
       </Paragraph>
     </Box>
   )
