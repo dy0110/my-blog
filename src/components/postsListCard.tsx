@@ -1,9 +1,9 @@
-import React from "react"
-import { Link } from "gatsby"
-import { Box, Header, Heading } from "grommet"
+import React from "react";
+import { Link } from "gatsby";
+import { Box, Header, Heading } from "grommet";
 
 const PostsListCard = ({ frontmatter, fields, excerpt }) => {
-  const title = frontmatter.title || fields.slug
+  const title = frontmatter.title || fields.slug;
 
   return (
     <Box tag={"article"} margin={{ bottom: "small" }}>
@@ -13,7 +13,7 @@ const PostsListCard = ({ frontmatter, fields, excerpt }) => {
             style={{
               boxShadow: `none`,
               textDecoration: `none`,
-              color: `inherit`,
+              color: `inherit`
             }}
             to={`/${fields.slug}/`}
           >
@@ -24,7 +24,7 @@ const PostsListCard = ({ frontmatter, fields, excerpt }) => {
       <small>{frontmatter.date}</small>
       <section> {frontmatter.description || excerpt}</section>
     </Box>
-  )
-}
+  );
+};
 
-export default PostsListCard
+export default PostsListCard;

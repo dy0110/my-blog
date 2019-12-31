@@ -1,16 +1,28 @@
-import React from "react"
-import { Link, graphql } from "gatsby"
-import { Box } from "grommet"
+import React from "react";
+import { Link, graphql } from "gatsby";
+import { Box } from "grommet";
 
-import Bio from "../components/Bio"
-import SEO from "../components/seo"
-// import { rhythm, scale } from "../utils/typography"
+import Bio from "../components/Bio";
+import SEO from "../components/seo";
+import { MarkdownRemark } from "../../types/graphql-types";
 
-const BlogPostTemplate = ({ data, pageContext }) => {
-  const post = data.markdownRemark
-  const { previous, next } = pageContext
+interface Props {
+  data: {
+    site: {
+      siteMetadata: {
+        title: string;
+      }
+    },
+    markdownRemark: MarkdownRemark
+  },
+  pageContext: any
+}
 
-  console.log("post", post)
+const BlogPostTemplate:React.FC<Props> = ({ data, pageContext }) => {
+  const post = data.markdownRemark;
+  const { previous, next } = pageContext;
+
+  console.log("post", post);
 
   return (
     <Box>
@@ -22,14 +34,14 @@ const BlogPostTemplate = ({ data, pageContext }) => {
         <header>
           <h1
             style={{
-              marginBottom: 0,
+              marginBottom: 0
             }}
           >
             {post.frontmatter.title}
           </h1>
           <p
             style={{
-              display: `block`,
+              display: `block`
             }}
           >
             {post.frontmatter.date}
@@ -46,7 +58,7 @@ const BlogPostTemplate = ({ data, pageContext }) => {
                 flexWrap: `wrap`,
                 justifyContent: `space-between`,
                 listStyle: `none`,
-                padding: 0,
+                padding: 0
               }}
             >
               <li>
@@ -68,12 +80,12 @@ const BlogPostTemplate = ({ data, pageContext }) => {
         </footer>
       </article>
     </Box>
-  )
-}
+  );
+};
 
-export default BlogPostTemplate
+export default BlogPostTemplate;
 
-export const pageQuery = graphql`
+export const blogPostPageQuery = graphql`
   query BlogPostBySlug($slug: String!) {
     site {
       siteMetadata {
@@ -93,4 +105,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;

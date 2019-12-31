@@ -1,19 +1,26 @@
-import React from "react"
-import { graphql } from "gatsby"
+import React from "react";
+import { graphql } from "gatsby";
 
-import Bio from "../components/bio"
-import AriticleCard from "../components/ariticleCard"
-import SEO from "../components/seo"
+import Bio from "../components/bio";
+import AriticleCard from "../components/ariticleCard";
+import SEO from "../components/seo";
+import { MarkdownRemarkConnection } from "../../types/graphql-types";
 
-const BlogIndex = ({ data }) => {
-  const posts = data.allMarkdownRemark.edges
+interface Props {
+  data: {
+    allMarkdownRemark:MarkdownRemarkConnection
+  }
+}
+
+const BlogIndex: React.FC<Props> = ({ data }) => {
+  const posts = data.allMarkdownRemark.edges;
 
   return (
     <>
       <SEO title="All posts" />
       <Bio />
       {posts.map(({ node }) => {
-        const title = node.frontmatter.title || node.fields.slug
+        const title = node.frontmatter.title || node.fields.slug;
         return (
           <AriticleCard
             title={title}
@@ -27,15 +34,15 @@ const BlogIndex = ({ data }) => {
             tags={node.frontmatter.tags}
             slugTags={node.fields.tags}
           />
-        )
+        );
       })}
     </>
-  )
-}
+  );
+};
 
-export default BlogIndex
+export default BlogIndex;
 
-export const pageQuery = graphql`
+export const topPageQuery = graphql`
   query {
     allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
       edges {
@@ -57,4 +64,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;

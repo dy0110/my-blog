@@ -1,7 +1,13 @@
 {
-  "endOfLine": "lf",
-  "semi": false,
-  "singleQuote": false,
-  "tabWidth": 2,
-  "trailingComma": "es5"
+  "presets": [
+    [
+      "@babel/preset-env",
+      { "targets": { "browsers": [">0.25%", "not dead"] }}
+    ],
+    "@babel/preset-react"
+  ],
+  "plugins": [
+    "@babel/plugin-proposal-optional-chaining",
+    "@babel/plugin-proposal-class-properties"
+  ]
 }

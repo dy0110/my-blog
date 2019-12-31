@@ -1,22 +1,22 @@
-import React, { useState } from "react"
-import { Link } from "gatsby"
+import React, { useState } from "react";
+import { Link } from "gatsby";
 import {
   Grommet,
   ResponsiveContext,
   Box,
   Header,
   Heading,
-  Footer,
   Text,
-  Button,
-} from "grommet"
-import { Github, Trigger } from "grommet-icons"
+  Button
+} from "grommet";
+import { Github, Trigger } from "grommet-icons";
 
-import { switchTheme } from "../utils/theme"
-import "./layout.css"
+import { switchTheme } from "../utils/theme";
+import "./layout.css";
+import { LayoutFooter } from "./styled";
 
-const Layout = ({ children }) => {
-  const [theme, setTheme] = useState(false)
+const Layout: React.FC = ({ children }) => {
+  const [theme, setTheme] = useState(false);
 
   return (
     <Grommet theme={switchTheme(theme)} full>
@@ -39,7 +39,7 @@ const Layout = ({ children }) => {
                   style={{
                     boxShadow: `none`,
                     textDecoration: `none`,
-                    color: `inherit`,
+                    color: `inherit`
                   }}
                   to={`/`}
                 >
@@ -50,13 +50,13 @@ const Layout = ({ children }) => {
                 <Button
                   icon={<Github />}
                   onClick={() => {
-                    window.open("https://github.com/dy0110")
+                    window.open("https://github.com/dy0110");
                   }}
                 />
                 <Button
                   icon={<Trigger />}
                   onClick={() => {
-                    setTheme(!theme)
+                    setTheme(!theme);
                   }}
                 />
               </Box>
@@ -70,14 +70,13 @@ const Layout = ({ children }) => {
             >
               {children}
             </Box>
-            <Footer
+            <LayoutFooter
               background={theme ? "dark-1" : "light-3"}
               direction={"row"}
               align={"center"}
               justify={"center"}
               pad={{ left: "medium", right: "small", vertical: "small" }}
               width={"100%"}
-              style={{ position: `absolute`, bottom: 0 }}
             >
               <Text>
                 © {new Date().getFullYear()}, Built with
@@ -86,18 +85,18 @@ const Layout = ({ children }) => {
                   style={{
                     boxShadow: `none`,
                     textDecoration: `none`,
-                    color: `inherit`,
+                    color: `inherit`
                   }}
                 >
                   Gatsby
                 </a>
               </Text>
-            </Footer>
+            </LayoutFooter>
           </Box>
         )}
       </ResponsiveContext.Consumer>
     </Grommet>
-  )
-}
+  );
+};
 
-export default Layout
+export default Layout;
