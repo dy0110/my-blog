@@ -8,8 +8,7 @@ import { MarkdownRemarkConnection } from "../../types/graphql-types";
 
 interface Props {
   data: {
-    allMarkdownRemark:MarkdownRemarkConnection
-  }
+    allMarkdownRemark:MarkdownRemarkConnection}
 }
 
 const BlogIndex: React.FC<Props> = ({ data }) => {

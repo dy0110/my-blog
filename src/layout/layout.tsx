@@ -66,7 +66,7 @@ const Layout: React.FC = ({ children }) => {
               overflow={{ vertical: "scroll", horizontal: "hidden" }}
               background={theme ? "dark-1" : "white"}
               pad={{ horizontal: "50px", bottom: "large", top: "small" }}
-              style={{ display: "block" }}
+              style={{ display: "block", height: '100%' }}
             >
               {children}
             </Box>
