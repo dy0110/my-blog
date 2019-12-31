@@ -21,9 +21,8 @@ const Layout = ({ children }) => {
   return (
     <Grommet theme={switchTheme(theme)} full>
       <ResponsiveContext.Consumer>
-        {size => (
+        {() => (
           <Box fill style={{ height: `100vh`, position: "relative" }}>
-            {console.log("size", size)}
             <Header
               direction="row"
               align="center"
