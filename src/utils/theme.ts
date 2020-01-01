@@ -24,12 +24,12 @@ const DarkTheme = {
         "19": "5",
         "20": ")",
         light: "#f50057",
-        dark: "#ff4081",
+        dark: "#ff4081"
       },
       brand: "#000000",
       control: {
         dark: "#f8f8f8",
-        light: "#444444",
+        light: "#444444"
       },
       focus: "#2AD2C9",
       "accent-1": "#2AD2C9",
@@ -45,48 +45,48 @@ const DarkTheme = {
       "status-warning": "#FFEB3B",
       "status-ok": "#4CAF50",
       "status-unknown": "#9E9E9E",
-      "status-disabled": "#9E9E9E",
+      "status-disabled": "#9E9E9E"
     },
     control: {
       border: {
-        radius: "0px",
-      },
+        radius: "0px"
+      }
     },
     drop: {
-      background: "#2a2a2a",
+      background: "#2a2a2a"
     },
     focus: {
       border: {
-        color: "#f50057",
-      },
+        color: "#f50057"
+      }
     },
     hover: {
       background: {
         dark: "#ff4081",
-        light: "#f50057",
-      },
-    },
+        light: "#f50057"
+      }
+    }
   },
   anchor: {
     color: {
       dark: "#ff4081",
-      light: "#f50057",
-    },
+      light: "#f50057"
+    }
   },
   button: {
     border: {
-      radius: "0px",
-    },
+      radius: "0px"
+    }
   },
   checkBox: {
     check: {
-      radius: "0px",
-    },
+      radius: "0px"
+    }
   },
   layer: {
-    background: "#444444",
-  },
-}
+    background: "#444444"
+  }
+};
 
 const LightTheme = {
   global: {
@@ -114,12 +114,12 @@ const LightTheme = {
         "19": "5",
         "20": ")",
         light: "#f50057",
-        dark: "#ff4081",
+        dark: "#ff4081"
       },
       brand: "#00ABD4",
       control: {
         dark: "#ffffff",
-        light: "#00ABD4",
+        light: "#00ABD4"
       },
       focus: "#2AD2C9",
       "accent-1": "#2AD2C9",
@@ -135,59 +135,59 @@ const LightTheme = {
       "status-warning": "#FFEB3B",
       "status-ok": "#4CAF50",
       "status-unknown": "#9E9E9E",
-      "status-disabled": "#9E9E9E",
+      "status-disabled": "#9E9E9E"
     },
     control: {
       border: {
-        radius: "0px",
-      },
+        radius: "0px"
+      }
     },
     drop: {
-      background: "#f8f8f8",
+      background: "#f8f8f8"
     },
     focus: {
       border: {
-        color: "#f50057",
-      },
+        color: "#f50057"
+      }
     },
     hover: {
       background: {
         dark: "#ff4081",
-        light: "#f50057",
-      },
-    },
+        light: "#f50057"
+      }
+    }
   },
   anchor: {
     color: {
       dark: "#7986cb",
-      light: "#3f51b5",
-    },
+      light: "#3f51b5"
+    }
   },
   button: {
     border: {
-      radius: "8px",
-    },
+      radius: "8px"
+    }
   },
   checkBox: {
     check: {
-      radius: "0px",
+      radius: "0px"
     },
     toggle: {
       color: {
         dark: "#bdbdbd",
-        light: "#00ABD4",
-      },
-    },
+        light: "#00ABD4"
+      }
+    }
   },
   radioButton: {
     border: {
       color: {
-        light: "rgba(0, 98, 186, 0.5)",
-      },
-    },
-  },
-}
+        light: "rgba(0, 98, 186, 0.5)"
+      }
+    }
+  }
+};
 
 export const switchTheme = theme => {
-  return theme ? DarkTheme : LightTheme
-}
+  return theme ? DarkTheme : LightTheme;
+};

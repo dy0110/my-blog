@@ -5,10 +5,10 @@
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-import React from "react"
-import { useStaticQuery, graphql } from "gatsby"
-import Image from "gatsby-image"
-import { Box, Paragraph, Text } from "grommet"
+import React from "react";
+import { useStaticQuery, graphql } from "gatsby";
+import Image from "gatsby-image";
+import { Box, Paragraph, Text } from "grommet";
 
 const Bio = () => {
   const data = useStaticQuery(graphql`
@@ -26,9 +26,9 @@ const Bio = () => {
         }
       }
     }
-  `)
+  `);
 
-  const { author } = data.site.siteMetadata
+  const { author } = data.site.siteMetadata;
   return (
     <Box direction="row" align="center" justify="start" height={"120px"}>
       <Image
@@ -39,10 +39,10 @@ const Bio = () => {
           marginBottom: 0,
           minWidth: 70,
           borderRadius: `100%`,
-          minHeight: 70,
+          minHeight: 70
         }}
         imgStyle={{
-          borderRadius: `50%`,
+          borderRadius: `50%`
         }}
       />
       <Paragraph>
@@ -53,7 +53,7 @@ const Bio = () => {
         <Text size={"small"}>趣味とプログラミング</Text>
       </Paragraph>
     </Box>
-  )
-}
+  );
+};
 
-export default Bio
+export default Bio;

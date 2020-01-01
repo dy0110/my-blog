@@ -1,6 +1,6 @@
-import React from "react"
-import { Box, Header, Heading, Text } from "grommet"
-import { Link } from "gatsby"
+import React from "react";
+import { Box, Header, Heading, Text } from "grommet";
+import { Link } from "gatsby";
 
 const ArticleCard = ({
   title,
@@ -11,7 +11,7 @@ const ArticleCard = ({
   category,
   slugCategory,
   tags,
-  slugTags,
+  slugTags
 }) => {
   return (
     <Box tag="article" key={slugTitle} pad={{ vertical: "5px" }}>
@@ -21,7 +21,7 @@ const ArticleCard = ({
             style={{
               boxShadow: `none`,
               textDecoration: `none`,
-              color: `inherit`,
+              color: `inherit`
             }}
             to={slugTitle}
           >
@@ -36,7 +36,7 @@ const ArticleCard = ({
           style={{
             boxShadow: `none`,
             textDecoration: `none`,
-            color: `inherit`,
+            color: `inherit`
           }}
           to={`category/${slugCategory}`}
         >
@@ -53,7 +53,7 @@ const ArticleCard = ({
                   style={{
                     boxShadow: `none`,
                     textDecoration: `none`,
-                    color: `inherit`,
+                    color: `inherit`
                   }}
                   to={`tags/${slugTag}`}
                 >
@@ -69,7 +69,7 @@ const ArticleCard = ({
         <Text size={"medium"}>{description || excerpt}</Text>
       </section>
     </Box>
-  )
-}
+  );
+};
 
-export default ArticleCard
+export default ArticleCard;
