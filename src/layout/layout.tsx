@@ -43,7 +43,7 @@ const Layout: React.FC = ({ children }) => {
                   }}
                   to={`/`}
                 >
-                  Gatsby Starter Blog
+                  dy0110 Blog
                 </Link>
               </Heading>
               <Box tag="div" direction="row" align="center" justify="start">
@@ -65,7 +65,7 @@ const Layout: React.FC = ({ children }) => {
               tag="main"
               overflow={{ vertical: "scroll", horizontal: "hidden" }}
               background={theme ? "dark-1" : "white"}
-              pad={{ horizontal: "50px", bottom: "large", top: "small" }}
+              pad={{ horizontal: "150px", bottom: "large", top: "small" }}
               style={{ display: "block", height: '100%' }}
             >
               {children}

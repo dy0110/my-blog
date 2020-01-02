@@ -41,6 +41,7 @@ export const tagPageQuery = graphql`
           timeToRead
           frontmatter {
             title
+            description
             date(formatString: "YYYY/MM/DD", locale: "ja")
           }
         }

@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "gatsby";
-import { Box, Header, Heading } from "grommet";
+import { Box, Header, Heading, Text } from "grommet";
 
 const PostsListCard = ({ frontmatter, fields, excerpt }) => {
   const title = frontmatter.title || fields.slug;
@@ -21,8 +21,10 @@ const PostsListCard = ({ frontmatter, fields, excerpt }) => {
           </Link>
         </Heading>
       </Header>
+      <section>
+        <Text size={"medium"}>{frontmatter.description || excerpt}</Text>
+      </section>
       <small>{frontmatter.date}</small>
-      <section> {frontmatter.description || excerpt}</section>
     </Box>
   );
 };

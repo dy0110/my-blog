@@ -30,7 +30,7 @@ const Bio = () => {
 
   const { author } = data.site.siteMetadata;
   return (
-    <Box direction="row" align="center" justify="start" height={"120px"}>
+    <Box direction="row" align="center" justify="center" height={"120px"}>
       <Image
         fixed={data.avatar.childImageSharp.fixed}
         alt={author}

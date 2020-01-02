@@ -29,15 +29,13 @@ const ArticleCard = ({
           </Link>
         </Heading>
       </Header>
+      <section>
+        <Text size={"medium"}>{description || excerpt}</Text>
+      </section>
       <small>{date}</small>
       <Text size={"xsmall"}>
         カテゴリ:{" "}
         <Link
-          style={{
-            boxShadow: `none`,
-            textDecoration: `none`,
-            color: `inherit`
-          }}
           to={`category/${slugCategory}`}
         >
           {category != null ? category : ""}
@@ -50,11 +48,6 @@ const ArticleCard = ({
               <>
                 <Link
                   key={index}
-                  style={{
-                    boxShadow: `none`,
-                    textDecoration: `none`,
-                    color: `inherit`
-                  }}
                   to={`tags/${slugTag}`}
                 >
                   {tags != null && tags[index]}
@@ -64,10 +57,6 @@ const ArticleCard = ({
             ))
           : ""}
       </Text>
-
-      <section>
-        <Text size={"medium"}>{description || excerpt}</Text>
-      </section>
     </Box>
   );
 };

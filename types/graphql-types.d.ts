@@ -701,6 +701,42 @@ export type FileFieldsEnum =
   'childMarkdownRemark___frontmatter___description' |
   'childMarkdownRemark___frontmatter___category' |
   'childMarkdownRemark___frontmatter___tags' |
+  'childMarkdownRemark___frontmatter___cover___birthtime' |
+  'childMarkdownRemark___frontmatter___cover___birthtimeMs' |
+  'childMarkdownRemark___frontmatter___cover___sourceInstanceName' |
+  'childMarkdownRemark___frontmatter___cover___absolutePath' |
+  'childMarkdownRemark___frontmatter___cover___relativePath' |
+  'childMarkdownRemark___frontmatter___cover___extension' |
+  'childMarkdownRemark___frontmatter___cover___size' |
+  'childMarkdownRemark___frontmatter___cover___prettySize' |
+  'childMarkdownRemark___frontmatter___cover___modifiedTime' |
+  'childMarkdownRemark___frontmatter___cover___accessTime' |
+  'childMarkdownRemark___frontmatter___cover___changeTime' |
+  'childMarkdownRemark___frontmatter___cover___birthTime' |
+  'childMarkdownRemark___frontmatter___cover___root' |
+  'childMarkdownRemark___frontmatter___cover___dir' |
+  'childMarkdownRemark___frontmatter___cover___base' |
+  'childMarkdownRemark___frontmatter___cover___ext' |
+  'childMarkdownRemark___frontmatter___cover___name' |
+  'childMarkdownRemark___frontmatter___cover___relativeDirectory' |
+  'childMarkdownRemark___frontmatter___cover___dev' |
+  'childMarkdownRemark___frontmatter___cover___mode' |
+  'childMarkdownRemark___frontmatter___cover___nlink' |
+  'childMarkdownRemark___frontmatter___cover___uid' |
+  'childMarkdownRemark___frontmatter___cover___gid' |
+  'childMarkdownRemark___frontmatter___cover___rdev' |
+  'childMarkdownRemark___frontmatter___cover___blksize' |
+  'childMarkdownRemark___frontmatter___cover___ino' |
+  'childMarkdownRemark___frontmatter___cover___blocks' |
+  'childMarkdownRemark___frontmatter___cover___atimeMs' |
+  'childMarkdownRemark___frontmatter___cover___mtimeMs' |
+  'childMarkdownRemark___frontmatter___cover___ctimeMs' |
+  'childMarkdownRemark___frontmatter___cover___atime' |
+  'childMarkdownRemark___frontmatter___cover___mtime' |
+  'childMarkdownRemark___frontmatter___cover___ctime' |
+  'childMarkdownRemark___frontmatter___cover___publicURL' |
+  'childMarkdownRemark___frontmatter___cover___id' |
+  'childMarkdownRemark___frontmatter___cover___children' |
   'childMarkdownRemark___excerpt' |
   'childMarkdownRemark___rawMarkdownBody' |
   'childMarkdownRemark___fileAbsolutePath' |
@@ -1471,6 +1507,67 @@ export type MarkdownRemarkFieldsEnum =
   'frontmatter___description' |
   'frontmatter___category' |
   'frontmatter___tags' |
+  'frontmatter___cover___birthtime' |
+  'frontmatter___cover___birthtimeMs' |
+  'frontmatter___cover___sourceInstanceName' |
+  'frontmatter___cover___absolutePath' |
+  'frontmatter___cover___relativePath' |
+  'frontmatter___cover___extension' |
+  'frontmatter___cover___size' |
+  'frontmatter___cover___prettySize' |
+  'frontmatter___cover___modifiedTime' |
+  'frontmatter___cover___accessTime' |
+  'frontmatter___cover___changeTime' |
+  'frontmatter___cover___birthTime' |
+  'frontmatter___cover___root' |
+  'frontmatter___cover___dir' |
+  'frontmatter___cover___base' |
+  'frontmatter___cover___ext' |
+  'frontmatter___cover___name' |
+  'frontmatter___cover___relativeDirectory' |
+  'frontmatter___cover___dev' |
+  'frontmatter___cover___mode' |
+  'frontmatter___cover___nlink' |
+  'frontmatter___cover___uid' |
+  'frontmatter___cover___gid' |
+  'frontmatter___cover___rdev' |
+  'frontmatter___cover___blksize' |
+  'frontmatter___cover___ino' |
+  'frontmatter___cover___blocks' |
+  'frontmatter___cover___atimeMs' |
+  'frontmatter___cover___mtimeMs' |
+  'frontmatter___cover___ctimeMs' |
+  'frontmatter___cover___atime' |
+  'frontmatter___cover___mtime' |
+  'frontmatter___cover___ctime' |
+  'frontmatter___cover___publicURL' |
+  'frontmatter___cover___childImageSharp___id' |
+  'frontmatter___cover___childImageSharp___children' |
+  'frontmatter___cover___id' |
+  'frontmatter___cover___parent___id' |
+  'frontmatter___cover___parent___children' |
+  'frontmatter___cover___children' |
+  'frontmatter___cover___children___id' |
+  'frontmatter___cover___children___children' |
+  'frontmatter___cover___internal___content' |
+  'frontmatter___cover___internal___contentDigest' |
+  'frontmatter___cover___internal___description' |
+  'frontmatter___cover___internal___fieldOwners' |
+  'frontmatter___cover___internal___ignoreType' |
+  'frontmatter___cover___internal___mediaType' |
+  'frontmatter___cover___internal___owner' |
+  'frontmatter___cover___internal___type' |
+  'frontmatter___cover___childMarkdownRemark___id' |
+  'frontmatter___cover___childMarkdownRemark___excerpt' |
+  'frontmatter___cover___childMarkdownRemark___rawMarkdownBody' |
+  'frontmatter___cover___childMarkdownRemark___fileAbsolutePath' |
+  'frontmatter___cover___childMarkdownRemark___html' |
+  'frontmatter___cover___childMarkdownRemark___htmlAst' |
+  'frontmatter___cover___childMarkdownRemark___excerptAst' |
+  'frontmatter___cover___childMarkdownRemark___headings' |
+  'frontmatter___cover___childMarkdownRemark___timeToRead' |
+  'frontmatter___cover___childMarkdownRemark___tableOfContents' |
+  'frontmatter___cover___childMarkdownRemark___children' |
   'excerpt' |
   'rawMarkdownBody' |
   'fileAbsolutePath' |
@@ -1605,6 +1702,7 @@ export type MarkdownRemarkFrontmatter = {
   description?: Maybe<Scalars['String']>,
   category?: Maybe<Scalars['String']>,
   tags?: Maybe<Array<Maybe<Scalars['String']>>>,
+  cover?: Maybe<File>,
 };
 
 
@@ -1621,6 +1719,7 @@ export type MarkdownRemarkFrontmatterFilterInput = {
   description?: Maybe<StringQueryOperatorInput>,
   category?: Maybe<StringQueryOperatorInput>,
   tags?: Maybe<StringQueryOperatorInput>,
+  cover?: Maybe<FileFilterInput>,
 };
 
 export type MarkdownRemarkGroupConnection = {
@@ -1874,8 +1973,6 @@ export type QuerySiteArgs = {
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>,
   port?: Maybe<IntQueryOperatorInput>,
   host?: Maybe<StringQueryOperatorInput>,
-  polyfill?: Maybe<BooleanQueryOperatorInput>,
-  pathPrefix?: Maybe<StringQueryOperatorInput>,
   buildTime?: Maybe<DateQueryOperatorInput>
 };
 
@@ -1918,8 +2015,8 @@ export type QuerySitePageArgs = {
   parent?: Maybe<NodeFilterInput>,
   children?: Maybe<NodeFilterListInput>,
   internal?: Maybe<InternalFilterInput>,
-  path?: Maybe<StringQueryOperatorInput>,
   internalComponentName?: Maybe<StringQueryOperatorInput>,
+  path?: Maybe<StringQueryOperatorInput>,
   component?: Maybe<StringQueryOperatorInput>,
   componentChunkName?: Maybe<StringQueryOperatorInput>,
   isCreatedByStatefulCreatePages?: Maybe<BooleanQueryOperatorInput>,
@@ -1945,8 +2042,6 @@ export type Site = Node & {
   siteMetadata?: Maybe<SiteSiteMetadata>,
   port?: Maybe<Scalars['Int']>,
   host?: Maybe<Scalars['String']>,
-  polyfill?: Maybe<Scalars['Boolean']>,
-  pathPrefix?: Maybe<Scalars['String']>,
   buildTime?: Maybe<Scalars['Date']>,
 };
 
@@ -2079,8 +2174,6 @@ export type SiteFieldsEnum =
   'siteMetadata___social___github' |
   'port' |
   'host' |
-  'polyfill' |
-  'pathPrefix' |
   'buildTime';
 
 export type SiteFilterInput = {
@@ -2091,8 +2184,6 @@ export type SiteFilterInput = {
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>,
   port?: Maybe<IntQueryOperatorInput>,
   host?: Maybe<StringQueryOperatorInput>,
-  polyfill?: Maybe<BooleanQueryOperatorInput>,
-  pathPrefix?: Maybe<StringQueryOperatorInput>,
   buildTime?: Maybe<DateQueryOperatorInput>,
 };
 
@@ -2110,8 +2201,8 @@ export type SitePage = Node & {
   parent?: Maybe<Node>,
   children: Array<Node>,
   internal: Internal,
-  path?: Maybe<Scalars['String']>,
   internalComponentName?: Maybe<Scalars['String']>,
+  path?: Maybe<Scalars['String']>,
   component?: Maybe<Scalars['String']>,
   componentChunkName?: Maybe<Scalars['String']>,
   isCreatedByStatefulCreatePages?: Maybe<Scalars['Boolean']>,
@@ -2146,12 +2237,68 @@ export type SitePageContext = {
   category?: Maybe<Scalars['String']>,
   tag?: Maybe<Scalars['String']>,
   slug?: Maybe<Scalars['String']>,
+  previous?: Maybe<SitePageContextPrevious>,
+  next?: Maybe<SitePageContextNext>,
 };
 
 export type SitePageContextFilterInput = {
   category?: Maybe<StringQueryOperatorInput>,
   tag?: Maybe<StringQueryOperatorInput>,
   slug?: Maybe<StringQueryOperatorInput>,
+  previous?: Maybe<SitePageContextPreviousFilterInput>,
+  next?: Maybe<SitePageContextNextFilterInput>,
+};
+
+export type SitePageContextNext = {
+  fields?: Maybe<SitePageContextNextFields>,
+  frontmatter?: Maybe<SitePageContextNextFrontmatter>,
+};
+
+export type SitePageContextNextFields = {
+  slug?: Maybe<Scalars['String']>,
+};
+
+export type SitePageContextNextFieldsFilterInput = {
+  slug?: Maybe<StringQueryOperatorInput>,
+};
+
+export type SitePageContextNextFilterInput = {
+  fields?: Maybe<SitePageContextNextFieldsFilterInput>,
+  frontmatter?: Maybe<SitePageContextNextFrontmatterFilterInput>,
+};
+
+export type SitePageContextNextFrontmatter = {
+  title?: Maybe<Scalars['String']>,
+};
+
+export type SitePageContextNextFrontmatterFilterInput = {
+  title?: Maybe<StringQueryOperatorInput>,
+};
+
+export type SitePageContextPrevious = {
+  fields?: Maybe<SitePageContextPreviousFields>,
+  frontmatter?: Maybe<SitePageContextPreviousFrontmatter>,
+};
+
+export type SitePageContextPreviousFields = {
+  slug?: Maybe<Scalars['String']>,
+};
+
+export type SitePageContextPreviousFieldsFilterInput = {
+  slug?: Maybe<StringQueryOperatorInput>,
+};
+
+export type SitePageContextPreviousFilterInput = {
+  fields?: Maybe<SitePageContextPreviousFieldsFilterInput>,
+  frontmatter?: Maybe<SitePageContextPreviousFrontmatterFilterInput>,
+};
+
+export type SitePageContextPreviousFrontmatter = {
+  title?: Maybe<Scalars['String']>,
+};
+
+export type SitePageContextPreviousFrontmatterFilterInput = {
+  title?: Maybe<StringQueryOperatorInput>,
 };
 
 export type SitePageEdge = {
@@ -2247,14 +2394,18 @@ export type SitePageFieldsEnum =
   'internal___mediaType' |
   'internal___owner' |
   'internal___type' |
-  'path' |
   'internalComponentName' |
+  'path' |
   'component' |
   'componentChunkName' |
   'isCreatedByStatefulCreatePages' |
   'context___category' |
   'context___tag' |
   'context___slug' |
+  'context___previous___fields___slug' |
+  'context___previous___frontmatter___title' |
+  'context___next___fields___slug' |
+  'context___next___frontmatter___title' |
   'pluginCreator___id' |
   'pluginCreator___parent___id' |
   'pluginCreator___parent___parent___id' |
@@ -2344,8 +2495,8 @@ export type SitePageFilterInput = {
   parent?: Maybe<NodeFilterInput>,
   children?: Maybe<NodeFilterListInput>,
   internal?: Maybe<InternalFilterInput>,
-  path?: Maybe<StringQueryOperatorInput>,
   internalComponentName?: Maybe<StringQueryOperatorInput>,
+  path?: Maybe<StringQueryOperatorInput>,
   component?: Maybe<StringQueryOperatorInput>,
   componentChunkName?: Maybe<StringQueryOperatorInput>,
   isCreatedByStatefulCreatePages?: Maybe<BooleanQueryOperatorInput>,
@@ -2795,7 +2946,7 @@ export type CategoryPageQuery = { allMarkdownRemark: (
     Pick<MarkdownRemarkConnection, 'totalCount'>
     & { edges: Array<{ node: (
         Pick<MarkdownRemark, 'excerpt' | 'timeToRead'>
-        & { fields: Maybe<Pick<MarkdownRemarkFields, 'slug' | 'category'>>, frontmatter: Maybe<Pick<MarkdownRemarkFrontmatter, 'title' | 'date'>> }
+        & { fields: Maybe<Pick<MarkdownRemarkFields, 'slug' | 'category'>>, frontmatter: Maybe<Pick<MarkdownRemarkFrontmatter, 'title' | 'description' | 'date'>> }
       ) }> }
   ) };
 
@@ -2808,6 +2959,6 @@ export type TagPageQuery = { allMarkdownRemark: (
     Pick<MarkdownRemarkConnection, 'totalCount'>
     & { edges: Array<{ node: (
         Pick<MarkdownRemark, 'excerpt' | 'timeToRead'>
-        & { fields: Maybe<Pick<MarkdownRemarkFields, 'slug' | 'tags'>>, frontmatter: Maybe<Pick<MarkdownRemarkFrontmatter, 'title' | 'date'>> }
+        & { fields: Maybe<Pick<MarkdownRemarkFields, 'slug' | 'tags'>>, frontmatter: Maybe<Pick<MarkdownRemarkFrontmatter, 'title' | 'description' | 'date'>> }
       ) }> }
   ) };
