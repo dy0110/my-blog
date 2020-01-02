@@ -2,7 +2,7 @@ import React from "react";
 import { Link, graphql } from "gatsby";
 import { Box } from "grommet";
 
-import Bio from "../components/Bio";
+import Auther from "../components/auther";
 import SEO from "../components/seo";
 import { MarkdownRemark } from "../../types/graphql-types";
 
@@ -50,7 +50,7 @@ const BlogPostTemplate:React.FC<Props> = ({ data, pageContext }) => {
         <section dangerouslySetInnerHTML={{ __html: post.html }} />
         <hr />
         <footer>
-          <Bio />
+          <Auther />
           <nav>
             <ul
               style={{

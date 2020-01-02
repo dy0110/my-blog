@@ -10,7 +10,7 @@ import { useStaticQuery, graphql } from "gatsby";
 import Image from "gatsby-image";
 import { Box, Paragraph, Text } from "grommet";
 
-const Bio = () => {
+const Author = () => {
   const data = useStaticQuery(graphql`
     query BioQuery {
       avatar: file(absolutePath: { regex: "/myIcon.png/" }) {
@@ -56,4 +56,4 @@ const Bio = () => {
   );
 };
 
-export default Bio;
+export default Author;
