@@ -1,6 +1,13 @@
 import React from "react";
+import styled from "styled-components";
 import { Box, Header, Heading, Text } from "grommet";
 import { Link } from "gatsby";
+
+const Article = styled(Box)`
+    box-shadow: 1px 1px #9E9E9E;
+    border: solid 1px #9E9E9E;
+    border-radius: 3px;
+`;
 
 const ArticleCard = ({
   title,
@@ -14,7 +21,7 @@ const ArticleCard = ({
   slugTags
 }) => {
   return (
-    <Box tag="article" key={slugTitle} pad={{ vertical: "5px" }}>
+    <Article tag="article" key={slugTitle} pad={{ vertical: "12px", horizontal: "20px" }} margin={{bottom: "16px"}}>
       <Header direction="row" align="center" justify="between">
         <Heading level={3} margin={"none"} style={{ borderBottom: `none` }}>
           <Link
@@ -57,7 +64,7 @@ const ArticleCard = ({
             ))
           : ""}
       </Text>
-    </Box>
+    </Article>
   );
 };
 

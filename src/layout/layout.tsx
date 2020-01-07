@@ -43,7 +43,7 @@ const Layout: React.FC = ({ children }) => {
                   }}
                   to={`/`}
                 >
-                  dy0110 Blog
+                  dy0110's Blog
                 </Link>
               </Heading>
               <Box tag="div" direction="row" align="center" justify="start">

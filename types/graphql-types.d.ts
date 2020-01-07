@@ -696,9 +696,9 @@ export type FileFieldsEnum =
   'childMarkdownRemark___excerpt' |
   'childMarkdownRemark___rawMarkdownBody' |
   'childMarkdownRemark___fileAbsolutePath' |
+  'childMarkdownRemark___fields___slug' |
   'childMarkdownRemark___fields___category' |
   'childMarkdownRemark___fields___tags' |
-  'childMarkdownRemark___fields___slug' |
   'childMarkdownRemark___html' |
   'childMarkdownRemark___htmlAst' |
   'childMarkdownRemark___excerptAst' |
@@ -1451,9 +1451,9 @@ export type MarkdownRemarkEdge = {
 };
 
 export type MarkdownRemarkFields = {
+  slug?: Maybe<Scalars['String']>,
   category?: Maybe<Scalars['String']>,
   tags?: Maybe<Array<Maybe<Scalars['String']>>>,
-  slug?: Maybe<Scalars['String']>,
 };
 
 export type MarkdownRemarkFieldsEnum = 
@@ -1466,9 +1466,9 @@ export type MarkdownRemarkFieldsEnum =
   'excerpt' |
   'rawMarkdownBody' |
   'fileAbsolutePath' |
+  'fields___slug' |
   'fields___category' |
   'fields___tags' |
-  'fields___slug' |
   'html' |
   'htmlAst' |
   'excerptAst' |
@@ -1567,9 +1567,9 @@ export type MarkdownRemarkFieldsEnum =
   'internal___type';
 
 export type MarkdownRemarkFieldsFilterInput = {
+  slug?: Maybe<StringQueryOperatorInput>,
   category?: Maybe<StringQueryOperatorInput>,
   tags?: Maybe<StringQueryOperatorInput>,
-  slug?: Maybe<StringQueryOperatorInput>,
 };
 
 export type MarkdownRemarkFilterInput = {
@@ -2138,12 +2138,68 @@ export type SitePageContext = {
   category?: Maybe<Scalars['String']>,
   tag?: Maybe<Scalars['String']>,
   slug?: Maybe<Scalars['String']>,
+  previous?: Maybe<SitePageContextPrevious>,
+  next?: Maybe<SitePageContextNext>,
 };
 
 export type SitePageContextFilterInput = {
   category?: Maybe<StringQueryOperatorInput>,
   tag?: Maybe<StringQueryOperatorInput>,
   slug?: Maybe<StringQueryOperatorInput>,
+  previous?: Maybe<SitePageContextPreviousFilterInput>,
+  next?: Maybe<SitePageContextNextFilterInput>,
+};
+
+export type SitePageContextNext = {
+  fields?: Maybe<SitePageContextNextFields>,
+  frontmatter?: Maybe<SitePageContextNextFrontmatter>,
+};
+
+export type SitePageContextNextFields = {
+  slug?: Maybe<Scalars['String']>,
+};
+
+export type SitePageContextNextFieldsFilterInput = {
+  slug?: Maybe<StringQueryOperatorInput>,
+};
+
+export type SitePageContextNextFilterInput = {
+  fields?: Maybe<SitePageContextNextFieldsFilterInput>,
+  frontmatter?: Maybe<SitePageContextNextFrontmatterFilterInput>,
+};
+
+export type SitePageContextNextFrontmatter = {
+  title?: Maybe<Scalars['String']>,
+};
+
+export type SitePageContextNextFrontmatterFilterInput = {
+  title?: Maybe<StringQueryOperatorInput>,
+};
+
+export type SitePageContextPrevious = {
+  fields?: Maybe<SitePageContextPreviousFields>,
+  frontmatter?: Maybe<SitePageContextPreviousFrontmatter>,
+};
+
+export type SitePageContextPreviousFields = {
+  slug?: Maybe<Scalars['String']>,
+};
+
+export type SitePageContextPreviousFieldsFilterInput = {
+  slug?: Maybe<StringQueryOperatorInput>,
+};
+
+export type SitePageContextPreviousFilterInput = {
+  fields?: Maybe<SitePageContextPreviousFieldsFilterInput>,
+  frontmatter?: Maybe<SitePageContextPreviousFrontmatterFilterInput>,
+};
+
+export type SitePageContextPreviousFrontmatter = {
+  title?: Maybe<Scalars['String']>,
+};
+
+export type SitePageContextPreviousFrontmatterFilterInput = {
+  title?: Maybe<StringQueryOperatorInput>,
 };
 
 export type SitePageEdge = {
@@ -2247,6 +2303,10 @@ export type SitePageFieldsEnum =
   'context___category' |
   'context___tag' |
   'context___slug' |
+  'context___previous___fields___slug' |
+  'context___previous___frontmatter___title' |
+  'context___next___fields___slug' |
+  'context___next___frontmatter___title' |
   'pluginCreator___id' |
   'pluginCreator___parent___id' |
   'pluginCreator___parent___parent___id' |
