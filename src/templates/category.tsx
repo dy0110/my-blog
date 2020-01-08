@@ -1,7 +1,7 @@
 import React from "react";
 import { graphql } from "gatsby";
 import { Box, Heading } from "grommet";
-
+import { Archive } from "grommet-icons";
 import SEO from "../components/seo";
 import PostsList from "../components/postsList";
 import { MarkdownRemarkConnection } from "../../types/graphql-types";
@@ -18,8 +18,11 @@ const CategoryTemplate: React.FC<Props> = ({ pageContext, data }) => {
   return (
     <Box tag={"div"} className="category-container">
       <SEO title={`Posts in category "${category}"`} />
-
-      <Heading level={2}>カテゴリ: {category}</Heading>
+      <div style={{display: "flex", alignItems:"center"}}>
+        <Archive size={"28px"} />  
+        <Heading level={2} margin={{left: "8px"}}>カテゴリ: {category}</Heading>
+      </div>
+    
       <PostsList postEdges={data.allMarkdownRemark.edges} />
     </Box>
   );

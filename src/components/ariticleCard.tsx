@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { Box, Header, Heading, Text } from "grommet";
 import { Link } from "gatsby";
+import { Tag, Archive } from "grommet-icons";
 
 const Article = styled(Box)`
     box-shadow: 1px 1px #9E9E9E;
@@ -40,30 +41,34 @@ const ArticleCard = ({
         <Text size={"medium"}>{description || excerpt}</Text>
       </section>
       <small>{date}</small>
-      <Text size={"xsmall"}>
-        カテゴリ:{" "}
-        <Link
-          to={`category/${slugCategory}`}
-        >
-          {category != null ? category : ""}
-        </Link>
-      </Text>
-      <Text size={"xsmall"}>
-        タグ:{" "}
-        {slugTags != null
-          ? slugTags.map((slugTag, index) => (
-              <>
-                <Link
-                  key={index}
-                  to={`tags/${slugTag}`}
-                >
-                  {tags != null && tags[index]}
-                </Link>
-                {"  "}
-              </>
-            ))
-          : ""}
-      </Text>
+      <div style={{display: "flex", alignItems:"center", height: "20px"}}>
+        <Archive size={"small"}/>
+        <Text size={"xsmall"} margin={{bottom: "2px", left: "4px"}}>
+          <Link
+            to={`category/${slugCategory}`}
+          >
+            {category != null ? category : ""}
+          </Link>
+        </Text>
+      </div>
+      <div style={{display: "flex", alignItems:"center", height: "20px"}}>
+        <Tag size={"small"}/>
+        <Text size={"xsmall"} margin={{bottom: "2px", left: "4px"}}>
+          {slugTags != null
+            ? slugTags.map((slugTag, index) => (
+                <>
+                  <Link
+                    key={index}
+                    to={`tags/${slugTag}`}
+                  >
+                    {tags != null && tags[index]}
+                  </Link>
+                  {"  "}
+                </>
+              ))
+            : ""}
+        </Text>
+      </div>
     </Article>
   );
 };
