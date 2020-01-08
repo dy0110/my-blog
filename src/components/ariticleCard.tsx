@@ -41,34 +41,37 @@ const ArticleCard = ({
         <Text size={"medium"}>{description || excerpt}</Text>
       </section>
       <small>{date}</small>
-      <div style={{display: "flex", alignItems:"center", height: "20px"}}>
-        <Archive size={"small"}/>
-        <Text size={"xsmall"} margin={{bottom: "2px", left: "4px"}}>
-          <Link
-            to={`category/${slugCategory}`}
-          >
-            {category != null ? category : ""}
-          </Link>
-        </Text>
-      </div>
-      <div style={{display: "flex", alignItems:"center", height: "20px"}}>
+      {category != null && (
+        <div style={{display: "flex", alignItems:"center"}}>
+          <Archive size={"small"}/>
+          <Text size={"xsmall"} margin={{bottom: "2px", left: "4px"}}>
+            <Link
+              to={`category/${slugCategory}`}
+            >
+             {category}
+            </Link>
+          </Text>
+        </div>
+      )}
+      {slugTags != null && (
+        <div style={{display: "flex", alignItems:"center"}}>
         <Tag size={"small"}/>
         <Text size={"xsmall"} margin={{bottom: "2px", left: "4px"}}>
-          {slugTags != null
-            ? slugTags.map((slugTag, index) => (
-                <>
-                  <Link
-                    key={index}
-                    to={`tags/${slugTag}`}
-                  >
-                    {tags != null && tags[index]}
-                  </Link>
-                  {"  "}
-                </>
-              ))
-            : ""}
+          {
+            slugTags.map((slugTag, index) => (
+              <>
+                <Link
+                  key={index}
+                  to={`tags/${slugTag}`}
+                >
+                  {tags != null && tags[index]}
+                </Link>
+              </>
+            ))
+          }
         </Text>
-      </div>
+        </div>
+      )}
     </Article>
   );
 };
