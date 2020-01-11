@@ -18,5 +18,5 @@ collections:
       - { label: "Publish Date", name: "date", widget: "datetime" }
       - { label: "Description", name: "description", widget: "string" }
       - { label: "Category", name: "category", widget: "string" }
-      - { label: "Tags", name: "tags", widget: "list", default: ["news"] }
+      - { label: "Tags", name: "tags", widget: "list" }
       - { label: "Body", name: "body", widget: "markdown" }

@@ -60,14 +60,14 @@ const ArticleCard = ({
         <Text size={"xsmall"} margin={{bottom: "2px", left: "4px"}}>
           {
             slugTags.map((slugTag, index) => (
-              <>
+              <span style={{marginRight: "2px"}}>
                 <Link
                   key={index}
                   to={`tags/${slugTag}`}
                 >
                   {tags != null && tags[index]}
                 </Link>
-              </>
+              </span>
             ))
           }
         </Text>
