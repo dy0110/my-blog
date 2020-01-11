@@ -20,7 +20,13 @@ const CategoryTemplate: React.FC<Props> = ({ pageContext, data }) => {
       <SEO title={`Posts in tag "${tag}"`} />
       <div style={{display: "flex", alignItems:"center"}}>
        <Tag size={"28px"} /> 
-       <Heading level={2} margin={{left: "8px"}}>タグ: {tag}</Heading>
+        <Heading 
+          level={2} 
+          margin={{left: "8px"}} 
+          style={{overflow: "hidden", whiteSpace: "nowrap", textOverflow: "ellipsis"}}
+        >
+           {tag}
+        </Heading>
       </div>
       <PostsList postEdges={data.allMarkdownRemark.edges} />
     </Box>

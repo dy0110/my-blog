@@ -15,14 +15,26 @@ import { switchTheme } from "../utils/theme";
 import "./layout.css";
 import { LayoutFooter } from "./styled";
 
+const bodyResponsivePadding = ( size: string ): string => {
+  if( size === "small" ){
+    return "48px";
+  } else if( size === "medium" ){
+    return "280px";
+  } else if( size === "large" ){
+    return "540px"
+  }
+   return "360px";
+}
+
 const Layout: React.FC = ({ children }) => {
   const [theme, setTheme] = useState(false);
 
   return (
     <Grommet theme={switchTheme(theme)} full>
       <ResponsiveContext.Consumer>
-        {() => (
+        {size => (
           <Box fill style={{ height: `100vh`, position: "relative" }}>
+             { console.log(size)}
             <Header
               direction="row"
               align="center"
@@ -65,7 +77,7 @@ const Layout: React.FC = ({ children }) => {
               tag="main"
               overflow={{ vertical: "scroll", horizontal: "hidden" }}
               background={theme ? "dark-1" : "white"}
-              pad={{ horizontal: "150px", bottom: "large", top: "small" }}
+              pad={{ horizontal: bodyResponsivePadding(size), bottom: "large", top: "small" }}
               style={{ display: "block", height: '100%' }}
             >
               {children}

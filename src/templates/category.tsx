@@ -20,7 +20,13 @@ const CategoryTemplate: React.FC<Props> = ({ pageContext, data }) => {
       <SEO title={`Posts in category "${category}"`} />
       <div style={{display: "flex", alignItems:"center"}}>
         <Archive size={"28px"} />  
-        <Heading level={2} margin={{left: "8px"}}>カテゴリ: {category}</Heading>
+        <Heading 
+          level={2} 
+          margin={{left: "8px"}} 
+          style={{overflow: "hidden", whiteSpace: "nowrap", textOverflow: "ellipsis"}}
+          >
+            {category}
+          </Heading>
       </div>
     
       <PostsList postEdges={data.allMarkdownRemark.edges} />

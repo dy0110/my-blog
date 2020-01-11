@@ -8,6 +8,7 @@ const Article = styled(Box)`
     box-shadow: 1px 1px #9E9E9E;
     border: solid 1px #9E9E9E;
     border-radius: 3px;
+    width: 100%
 `;
 
 const ArticleCard = ({
