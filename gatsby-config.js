@@ -68,18 +68,6 @@ module.exports = {
     },
     `gatsby-plugin-offline`,
     `gatsby-plugin-react-helmet`,
-    {
-      resolve: "gatsby-plugin-categories",
-      options: {
-        templatePath: `${__dirname}/src/templates/category.tsx`,
-      },
-    },
-    {
-      resolve: "gatsby-plugin-tags",
-      options: {
-        templatePath: `${__dirname}/src/templates/tag.tsx`,
-      },
-    },
     `gatsby-plugin-typescript`,
     {
       resolve: "gatsby-plugin-graphql-codegen",

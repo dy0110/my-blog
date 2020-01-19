@@ -1,38 +1,51 @@
-import React from "react";
-import styled from "styled-components";
-import { Box, Header, Heading, Text } from "grommet";
-import { Link } from "gatsby";
-import { Tag, Archive } from "grommet-icons";
+import React from "react"
+import styled from "styled-components"
+import { Box, Header, Heading, Text } from "grommet"
+import { Link } from "gatsby"
+import { Tag, Archive } from "grommet-icons"
+import { Maybe } from "../../types/graphql-types"
 
 const Article = styled(Box)`
-    box-shadow: 1px 1px #9E9E9E;
-    border: solid 1px #9E9E9E;
-    border-radius: 3px;
-    width: 100%
-`;
+  box-shadow: 1px 1px #9e9e9e;
+  border: solid 1px #9e9e9e;
+  border-radius: 3px;
+  width: 100%;
+`
 
-const ArticleCard = ({
+interface Props {
+  title?: string | null
+  slugTitle?: string | null
+  date?: string
+  description?: string | null
+  excerpt?: string | null
+  category?: string | null
+  tags?: Maybe<string>[] | null
+}
+
+const ArticleCard: React.FC<Props> = ({
   title,
   slugTitle,
   date,
   description,
   excerpt,
   category,
-  slugCategory,
   tags,
-  slugTags
 }) => {
   return (
-    <Article tag="article" key={slugTitle} pad={{ vertical: "12px", horizontal: "20px" }} margin={{bottom: "16px"}}>
+    <Article
+      tag="article"
+      pad={{ vertical: "12px", horizontal: "20px" }}
+      margin={{ bottom: "16px" }}
+    >
       <Header direction="row" align="center" justify="between">
         <Heading level={3} margin={"none"} style={{ borderBottom: `none` }}>
           <Link
             style={{
               boxShadow: `none`,
               textDecoration: `none`,
-              color: `inherit`
+              color: `inherit`,
             }}
-            to={slugTitle}
+            to={slugTitle ? slugTitle : ""}
           >
             {title}
           </Link>
@@ -43,38 +56,27 @@ const ArticleCard = ({
       </section>
       <small>{date}</small>
       {category != null && (
-        <div style={{display: "flex", alignItems:"center"}}>
-          <Archive size={"small"}/>
-          <Text size={"xsmall"} margin={{bottom: "2px", left: "4px"}}>
-            <Link
-              to={`category/${slugCategory}`}
-            >
-             {category}
-            </Link>
+        <div style={{ display: "flex", alignItems: "center" }}>
+          <Archive size={"small"} />
+          <Text size={"xsmall"} margin={{ bottom: "2px", left: "4px" }}>
+            <Link to={`category/${category}`}>{category}</Link>
           </Text>
         </div>
       )}
-      {slugTags != null && (
-        <div style={{display: "flex", alignItems:"center"}}>
-        <Tag size={"small"}/>
-        <Text size={"xsmall"} margin={{bottom: "2px", left: "4px"}}>
-          {
-            slugTags.map((slugTag, index) => (
-              <span style={{marginRight: "2px"}}>
-                <Link
-                  key={index}
-                  to={`tags/${slugTag}`}
-                >
-                  {tags != null && tags[index]}
-                </Link>
+      {tags != null && (
+        <div style={{ display: "flex", alignItems: "center" }}>
+          <Tag size={"small"} />
+          <Text size={"xsmall"} margin={{ bottom: "2px", left: "4px" }}>
+            {tags.map((tag, index) => (
+              <span key={index} style={{ marginRight: "2px" }}>
+                <Link to={`tags/${tag}`}>{tag}</Link>
               </span>
-            ))
-          }
-        </Text>
+            ))}
+          </Text>
         </div>
       )}
     </Article>
-  );
-};
+  )
+}
 
-export default ArticleCard;
+export default ArticleCard

@@ -38,14 +38,13 @@ export const categoryPageQuery = graphql`
   query CategoryPage($category: String) {
     allMarkdownRemark(
       limit: 1000
-      filter: { fields: { category: { eq: $category } } }
+      filter: { frontmatter: { category: { eq: $category } } }
     ) {
       totalCount
       edges {
         node {
           fields {
             slug
-            category
           }
           excerpt
           timeToRead
@@ -53,6 +52,7 @@ export const categoryPageQuery = graphql`
             title
             description
             date(formatString: "YYYY/MM/DD", locale: "ja")
+            category
           }
         }
       }

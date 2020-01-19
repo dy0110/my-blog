@@ -37,14 +37,13 @@ export const tagPageQuery = graphql`
   query TagPage($tag: String) {
     allMarkdownRemark(
       limit: 1000
-      filter: { fields: { tags: { in: [$tag] } } }
+      filter: { frontmatter: { tags: { in: [$tag] } } }
     ) {
       totalCount
       edges {
         node {
           fields {
             slug
-            tags
           }
           excerpt
           timeToRead
@@ -52,6 +51,7 @@ export const tagPageQuery = graphql`
             title
             description
             date(formatString: "YYYY/MM/DD", locale: "ja")
+            tags
           }
         }
       }

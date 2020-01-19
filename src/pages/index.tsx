@@ -18,20 +18,18 @@ const BlogIndex: React.FC<Props> = ({ data }) => {
     <>
       <SEO title="All posts" />
       <Auther />
-      {posts.map(({ node }) => {
-        const title = node.frontmatter.title || node.fields.slug;
+      {posts.map(({ node },index) => {
+        const title = node.frontmatter?.title || node.fields?.slug;
         return (
           <AriticleCard
             title={title}
-            key={node.fields.slug}
-            slugTitle={node.fields.slug}
-            date={node.frontmatter.date}
-            description={node.frontmatter.description}
+            key={index}
+            slugTitle={node.fields?.slug}
+            date={node.frontmatter?.date}
+            description={node.frontmatter?.description}
             excerpt={node.excerpt}
-            category={node.frontmatter.category}
-            slugCategory={node.fields.category}
-            tags={node.frontmatter.tags}
-            slugTags={node.fields.tags}
+            category={node.frontmatter?.category}
+            tags={node.frontmatter?.tags}
           />
         );
       })}
@@ -49,8 +47,6 @@ export const topPageQuery = graphql`
           excerpt
           fields {
             slug
-            category
-            tags
           }
           frontmatter {
             date(formatString: "YYYY/MM/DD", locale: "ja")

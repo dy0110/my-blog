@@ -1,10 +1,10 @@
-import React from "react";
-import PostsListCard from "./postsListCard";
+import React from "react"
+import PostsListCard from "./postsListCard"
 
 const PostsList = ({ postEdges }) => {
   return postEdges.map(({ node }) => {
-    return <PostsListCard key={node.fields.slug} {...node} />;
-  });
-};
+    return <PostsListCard key={node.fields.slug} {...node} />
+  })
+}
 
-export default PostsList;
+export default PostsList
