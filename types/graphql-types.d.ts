@@ -2130,12 +2130,16 @@ export type SitePageContext = {
   slug?: Maybe<Scalars['String']>,
   previous?: Maybe<SitePageContextPrevious>,
   next?: Maybe<SitePageContextNext>,
+  tag?: Maybe<Scalars['String']>,
+  category?: Maybe<Scalars['String']>,
 };
 
 export type SitePageContextFilterInput = {
   slug?: Maybe<StringQueryOperatorInput>,
   previous?: Maybe<SitePageContextPreviousFilterInput>,
   next?: Maybe<SitePageContextNextFilterInput>,
+  tag?: Maybe<StringQueryOperatorInput>,
+  category?: Maybe<StringQueryOperatorInput>,
 };
 
 export type SitePageContextNext = {
@@ -2158,10 +2162,14 @@ export type SitePageContextNextFilterInput = {
 
 export type SitePageContextNextFrontmatter = {
   title?: Maybe<Scalars['String']>,
+  tags?: Maybe<Array<Maybe<Scalars['String']>>>,
+  category?: Maybe<Scalars['String']>,
 };
 
 export type SitePageContextNextFrontmatterFilterInput = {
   title?: Maybe<StringQueryOperatorInput>,
+  tags?: Maybe<StringQueryOperatorInput>,
+  category?: Maybe<StringQueryOperatorInput>,
 };
 
 export type SitePageContextPrevious = {
@@ -2184,10 +2192,14 @@ export type SitePageContextPreviousFilterInput = {
 
 export type SitePageContextPreviousFrontmatter = {
   title?: Maybe<Scalars['String']>,
+  tags?: Maybe<Array<Maybe<Scalars['String']>>>,
+  category?: Maybe<Scalars['String']>,
 };
 
 export type SitePageContextPreviousFrontmatterFilterInput = {
   title?: Maybe<StringQueryOperatorInput>,
+  tags?: Maybe<StringQueryOperatorInput>,
+  category?: Maybe<StringQueryOperatorInput>,
 };
 
 export type SitePageEdge = {
@@ -2291,8 +2303,14 @@ export type SitePageFieldsEnum =
   'context___slug' |
   'context___previous___fields___slug' |
   'context___previous___frontmatter___title' |
+  'context___previous___frontmatter___tags' |
+  'context___previous___frontmatter___category' |
   'context___next___fields___slug' |
   'context___next___frontmatter___title' |
+  'context___next___frontmatter___tags' |
+  'context___next___frontmatter___category' |
+  'context___tag' |
+  'context___category' |
   'pluginCreator___id' |
   'pluginCreator___parent___id' |
   'pluginCreator___parent___parent___id' |

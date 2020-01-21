@@ -6,14 +6,10 @@ exports.createPages = async ({ graphql, actions }) => {
 
   const blogPost = path.resolve(`./src/templates/blog-post.tsx`)
 
-
   const result = await graphql(
     `
       {
-        allMarkdownRemark(
-          sort: { fields: [frontmatter___date], order: DESC }
-          limit: 1000
-        ) {
+        postsRemark: allMarkdownRemark(sort: {fields: [frontmatter___date], order: DESC}, limit: 1000) {
           edges {
             node {
               fields {
@@ -27,7 +23,17 @@ exports.createPages = async ({ graphql, actions }) => {
             }
           }
         }
-      }
+        tags: allMarkdownRemark {
+          group(field: frontmatter___tags) {
+            fieldValue
+          }
+        }
+        categories: allMarkdownRemark {
+          group(field: frontmatter___category) {
+            fieldValue
+          }
+        }
+      }    
     `
   )
 
@@ -36,7 +42,7 @@ exports.createPages = async ({ graphql, actions }) => {
   }
 
   // Create blog posts pages.
-  const posts = result.data.allMarkdownRemark.edges
+  const posts = result.data.postsRemark.edges
 
   posts.forEach((post, index) => {
     const previous = index === posts.length - 1 ? null : posts[index + 1].node
@@ -52,6 +58,31 @@ exports.createPages = async ({ graphql, actions }) => {
       },
     })
   })
+
+  const tags = result.data.tags.group
+
+  tags.forEach(tag => {
+    createPage({
+      path: `tags/${tag.fieldValue}`,
+      component: path.resolve('./src/templates/tag.tsx'),
+      context: {
+        tag: tag.fieldValue
+      }
+    });
+  })
+
+const categories  = result.data.categories.group
+
+categories.forEach(category => {
+  createPage({
+    path: `category/${category.fieldValue}`,
+    component: path.resolve('./src/templates/category.tsx'),
+    context: {
+      category: category.fieldValue
+    }
+  });
+})
+
 }
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
