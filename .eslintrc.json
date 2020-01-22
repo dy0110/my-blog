@@ -1,33 +1,29 @@
 {
-    "env": {
-      "es6": true,
-      "node": true
-    },
-    "parser": "babel-eslint",
-    "plugins": [
-      "react",
-      "prettier"
-    ],
-    "parserOptions": {
-      "version": 2018,
-      "sourceType": "module",
-      "ecmaFeatures": {
-        "jsx": true
-      }
-    },
-    "extends": [
-      "eslint:recommended",
-      "plugin:react/recommended",
-      "plugin:prettier/recommended",
-      "prettier/react"
-    ],
-    "globals": {
-      "document": false
-    },
-    "rules": {
-      "prettier/prettier": "error",
-      "react/prop-types": "off",
-      "no-undef": "off",
-      "no-console": "warn"
-    }
+  "extends": [
+    "plugin:react/recommended",
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:prettier/recommended",
+    "prettier/@typescript-eslint"
+  ],
+  "plugins": [
+    "@typescript-eslint"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "env": {
+    "browser": true,
+    "node": true,
+    "es6": true
+  },
+  "parserOptions": {
+    "sourceType": "module",
+    "project": "./tsconfig.json"
+  },
+  "rules": {
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "react/prop-types": "off",
+    "@typescript-eslint/explicit-member-accessibility": "off",
+    "@typescript-eslint/no-empty-interface": "off",
+    "@typescript-eslint/no-parameter-properties": "off"
   }
+}
