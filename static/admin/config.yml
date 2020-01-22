@@ -23,8 +23,6 @@ collections:
           label: "Image", 
           name: "image", 
           widget: "image",  
-          media_library: 
-            config:
-              multiple: true 
+          media_library: { config: { multiple: true } }
         }
       - { label: "Body", name: "body", widget: "markdown" }
