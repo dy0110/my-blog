@@ -37,18 +37,14 @@ const ArticleCard: React.FC<Props> = ({
       pad={{ vertical: "12px", horizontal: "20px" }}
       margin={{ bottom: "16px" }}
     >
-      <Header direction="row" align="center" justify="between">
+      <Header
+        direction="row"
+        align="center"
+        justify="between"
+        margin={{ bottom: "4px" }}
+      >
         <Heading level={3} margin={"none"} style={{ borderBottom: `none` }}>
-          <Link
-            style={{
-              boxShadow: `none`,
-              textDecoration: `none`,
-              color: `inherit`,
-            }}
-            to={slugTitle ? slugTitle : ""}
-          >
-            {title}
-          </Link>
+          <Link to={slugTitle ? slugTitle : ""}>{title}</Link>
         </Heading>
       </Header>
       <section>

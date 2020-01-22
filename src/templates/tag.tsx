@@ -3,7 +3,7 @@ import { graphql } from "gatsby"
 import { Box, Heading } from "grommet"
 import { Tag } from "grommet-icons"
 import SEO from "../components/seo"
-import AriticleCard from "../components/ariticleCard"
+import ArticleCard from "../components/articleCard"
 import { MarkdownRemarkConnection } from "../../types/graphql-types"
 
 interface Props {
@@ -37,7 +37,7 @@ const CategoryTemplate: React.FC<Props> = ({ pageContext, data }) => {
       {allMarkdownRemark.edges.map(({ node }, index) => {
         const title = node.frontmatter?.title || node.fields?.slug
         return (
-          <AriticleCard
+          <ArticleCard
             title={title}
             key={index}
             slugTitle={node.fields?.slug}

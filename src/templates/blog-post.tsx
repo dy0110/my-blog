@@ -1,56 +1,66 @@
-import React from "react";
-import { Link, graphql } from "gatsby";
-import { Box } from "grommet";
+import React from "react"
+import { Link, graphql } from "gatsby"
+import { Box } from "grommet"
 
-import Auther from "../components/auther";
-import SEO from "../components/seo";
-import { MarkdownRemark } from "../../types/graphql-types";
+import Author from "../components/author"
+import SEO from "../components/seo"
+import { MarkdownRemark } from "../../types/graphql-types"
 
 interface Props {
   data: {
     site: {
       siteMetadata: {
-        title: string;
+        title: string
       }
-    },
+    }
     markdownRemark: MarkdownRemark
-  },
+  }
   pageContext: any
 }
 
-const BlogPostTemplate:React.FC<Props> = ({ data, pageContext }) => {
-  const post = data.markdownRemark;
-  const { previous, next } = pageContext;
-
-  console.log("post", post);
+const BlogPostTemplate: React.FC<Props> = ({ data, pageContext }) => {
+  const post = data.markdownRemark.frontmatter
+  const { previous, next } = pageContext
+  const title = post != null ? post.title : ""
+  const description = post != null ? post.description : ""
 
   return (
     <Box>
       <SEO
-        title={post.frontmatter.title}
-        description={post.frontmatter.description || post.excerpt}
+        title={title != null ? title : ""}
+        description={
+          (description != null ? description : undefined) ||
+          (data.markdownRemark.excerpt != null
+            ? data.markdownRemark.excerpt
+            : undefined)
+        }
       />
       <article>
         <header>
           <h1
             style={{
-              marginBottom: 0
+              marginBottom: 0,
             }}
           >
-            {post.frontmatter.title}
+            {title}
           </h1>
           <p
             style={{
-              display: `block`
+              display: `block`,
             }}
           >
-            {post.frontmatter.date}
+            {post != null ? post.date : ""}
           </p>
         </header>
-        <section dangerouslySetInnerHTML={{ __html: post.html }} />
+        <section
+          dangerouslySetInnerHTML={{
+            __html:
+              data.markdownRemark.html != null ? data.markdownRemark.html : "",
+          }}
+        />
         <hr />
         <footer>
-          <Auther />
+          <Author />
           <nav>
             <ul
               style={{
@@ -58,7 +68,7 @@ const BlogPostTemplate:React.FC<Props> = ({ data, pageContext }) => {
                 flexWrap: `wrap`,
                 justifyContent: `space-between`,
                 listStyle: `none`,
-                padding: 0
+                padding: 0,
               }}
             >
               <li>
@@ -80,10 +90,10 @@ const BlogPostTemplate:React.FC<Props> = ({ data, pageContext }) => {
         </footer>
       </article>
     </Box>
-  );
-};
+  )
+}
 
-export default BlogPostTemplate;
+export default BlogPostTemplate
 
 export const blogPostPageQuery = graphql`
   query BlogPostBySlug($slug: String!) {
@@ -105,4 +115,4 @@ export const blogPostPageQuery = graphql`
       }
     }
   }
-`;
+`

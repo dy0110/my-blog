@@ -1,8 +1,8 @@
 import React from "react"
 import { graphql } from "gatsby"
 
-import Auther from "../components/auther"
-import AriticleCard from "../components/ariticleCard"
+import Author from "../components/author"
+import ArticleCard from "../components/articleCard"
 import SEO from "../components/seo"
 import { MarkdownRemarkConnection } from "../../types/graphql-types"
 
@@ -18,11 +18,11 @@ const BlogIndex: React.FC<Props> = ({ data }) => {
   return (
     <>
       <SEO title="All posts" />
-      <Auther />
+      <Author />
       {posts.map(({ node }, index) => {
         const title = node.frontmatter?.title || node.fields?.slug
         return (
-          <AriticleCard
+          <ArticleCard
             title={title}
             key={index}
             slugTitle={node.fields?.slug}

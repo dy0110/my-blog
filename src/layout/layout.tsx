@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Link } from "gatsby";
+import React, { useState } from "react"
+import { Link } from "gatsby"
 import {
   Grommet,
   ResponsiveContext,
@@ -7,34 +7,33 @@ import {
   Header,
   Heading,
   Text,
-  Button
-} from "grommet";
-import { Github, Trigger } from "grommet-icons";
+  Button,
+  Footer,
+} from "grommet"
+import { Github, Trigger } from "grommet-icons"
 
-import { switchTheme } from "../utils/theme";
-import "./layout.css";
-import { LayoutFooter } from "./styled";
+import { switchTheme } from "../utils/theme"
+import "./layout.css"
 
-const bodyResponsivePadding = ( size: string ): string => {
-  if( size === "small" ){
-    return "48px";
-  } else if( size === "medium" ){
-    return "280px";
-  } else if( size === "large" ){
+const bodyResponsivePadding = (size: string): string => {
+  if (size === "small") {
+    return "48px"
+  } else if (size === "medium") {
+    return "280px"
+  } else if (size === "large") {
     return "540px"
   }
-   return "360px";
+  return "360px"
 }
 
 const Layout: React.FC = ({ children }) => {
-  const [theme, setTheme] = useState(false);
+  const [theme, setTheme] = useState(false)
 
   return (
     <Grommet theme={switchTheme(theme)} full>
       <ResponsiveContext.Consumer>
         {size => (
           <Box fill style={{ height: `100vh`, position: "relative" }}>
-             { console.log(size)}
             <Header
               direction="row"
               align="center"
@@ -51,24 +50,24 @@ const Layout: React.FC = ({ children }) => {
                   style={{
                     boxShadow: `none`,
                     textDecoration: `none`,
-                    color: `inherit`
+                    color: `inherit`,
                   }}
                   to={`/`}
                 >
-                  dy0110's Blog
+                  dy0110&#39;s Blog
                 </Link>
               </Heading>
               <Box tag="div" direction="row" align="center" justify="start">
                 <Button
                   icon={<Github />}
                   onClick={() => {
-                    window.open("https://github.com/dy0110");
+                    window.open("https://github.com/dy0110")
                   }}
                 />
                 <Button
                   icon={<Trigger />}
                   onClick={() => {
-                    setTheme(!theme);
+                    setTheme(!theme)
                   }}
                 />
               </Box>
@@ -77,12 +76,16 @@ const Layout: React.FC = ({ children }) => {
               tag="main"
               overflow={{ vertical: "scroll", horizontal: "hidden" }}
               background={theme ? "dark-1" : "white"}
-              pad={{ horizontal: bodyResponsivePadding(size), bottom: "large", top: "small" }}
-              style={{ display: "block", height: '100%' }}
+              pad={{
+                horizontal: bodyResponsivePadding(size),
+                bottom: "large",
+                top: "small",
+              }}
+              style={{ display: "block", height: "100%" }}
             >
               {children}
             </Box>
-            <LayoutFooter
+            <Footer
               background={theme ? "dark-1" : "light-3"}
               direction={"row"}
               align={"center"}
@@ -97,18 +100,18 @@ const Layout: React.FC = ({ children }) => {
                   style={{
                     boxShadow: `none`,
                     textDecoration: `none`,
-                    color: `inherit`
+                    color: `inherit`,
                   }}
                 >
                   Gatsby
                 </a>
               </Text>
-            </LayoutFooter>
+            </Footer>
           </Box>
         )}
       </ResponsiveContext.Consumer>
     </Grommet>
-  );
-};
+  )
+}
 
-export default Layout;
+export default Layout

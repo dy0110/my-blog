@@ -1,7 +1,7 @@
-import styled from "styled-components";
-import { Footer } from "grommet";
+import styled from "styled-components"
+import { Footer } from "grommet"
 
 export const LayoutFooter = styled(Footer)`
-    position: absolute;
-    bottom: 0;
-`;
+  position: absolute;
+  bottom: 0;
+`
